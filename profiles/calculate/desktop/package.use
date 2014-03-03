@@ -1,0 +1,18 @@
+sys-kernel/calculate-sources -minimal
+net-misc/openvpn iproute2
+sys-block/gparted dmraid fat jfs mdadm ntfs reiserfs xfs
+www-client/elinks javascript lua
+net-misc/tigervnc server xorgmodule
+
+#>=sys-fs/lvm2-2.02.103 -thin
+
+# required by x11-drivers/xf86-video-vmware-13.0.1
+# required by @custom
+# required by @selected
+# required by @world (argument)
+media-libs/mesa xa
+# required by x11-drivers/xf86-video-vmware-13.0.1
+# required by @custom
+# required by @selected
+# required by @world (argument)
+x11-libs/libdrm libkms

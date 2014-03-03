@@ -1,0 +1,175 @@
+# Calculate path=~/.dconfigure.d chmod=700 ini(update.dconf)!=off
+#!/bin/bash
+
+
+## COnfigure panels
+
+## reset panels
+dconf reset -f /org/mate/panel/
+
+## panels
+dconf write /org/mate/panel/toplevels/calculate_main_panel/size 32
+dconf write /org/mate/panel/toplevels/calculate_main_panel/orientation "'top'"
+dconf write /org/mate/panel/toplevels/calculate_main_panel/expand true
+
+dconf write /org/mate/panel/toplevels/calculate_bottom_panel/size 32
+dconf write /org/mate/panel/toplevels/calculate_bottom_panel/orientation "'bottom'"
+dconf write /org/mate/panel/toplevels/calculate_bottom_panel/expand false
+dconf write /org/mate/panel/toplevels/calculate_bottom_panel/auto-hide true
+dconf write /org/mate/panel/toplevels/calculate_bottom_panel/x 0
+dconf write /org/mate/panel/toplevels/calculate_bottom_panel/x-centered true
+dconf write /org/mate/panel/toplevels/calculate_bottom_panel/y 0
+dconf write /org/mate/panel/toplevels/calculate_bottom_panel/y-bottom 0
+
+
+ADDED_OBJECT=
+
+## objects on calculate_main_panel
+dconf write /org/mate/panel/objects/calculate_main_panel_0000_mainmenu/toplevel-id "'calculate_main_panel'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0000_mainmenu/position 0
+dconf write /org/mate/panel/objects/calculate_main_panel_0000_mainmenu/object-type "'menu'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0000_mainmenu/tooltip "'Main Menu'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0000_mainmenu/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_0000_mainmenu"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_0010_Home/toplevel-id "'calculate_main_panel'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0010_Home/position 10
+dconf write /org/mate/panel/objects/calculate_main_panel_0010_Home/object-type "'launcher'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0010_Home/launcher-location "'Home.desktop'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0010_Home/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_0010_home"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_Share/toplevel-id "'calculate_main_panel'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_Share/position 20
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_Share/object-type "'launcher'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_Share/launcher-location "'Share.desktop'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_Share/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_0020_Share"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_FTP/toplevel-id "'calculate_main_panel'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_FTP/position 20
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_FTP/object-type "'launcher'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_FTP/launcher-location "'FTP.desktop'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0020_FTP/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_0020_Share"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_0030_FTP/toplevel-id "'calculate_main_panel'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0030_FTP/position 30
+dconf write /org/mate/panel/objects/calculate_main_panel_0030_FTP/object-type "'launcher'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0030_FTP/launcher-location "'calculate-ftp.desktop'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0030_FTP/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_0030_FTP"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_0040_workspace-switcher/toplevel-id "'calculate_main_panel'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0040_workspace-switcher/position 40
+dconf write /org/mate/panel/objects/calculate_main_panel_0040_workspace-switcher/object-type "'applet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0040_workspace-switcher/applet-iid "'WnckletFactory::WorkspaceSwitcherApplet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0040_workspace-switcher/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_0040_workspace-switcher"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_0050_show-desktop/toplevel-id "'calculate_main_panel'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0050_show-desktop/position 50
+dconf write /org/mate/panel/objects/calculate_main_panel_0050_show-desktop/object-type "'applet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0050_show-desktop/applet-iid "'WnckletFactory::ShowDesktopApplet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0050_show-desktop/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_0050_show-desktop"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_0060_window-list/toplevel-id "'calculate_main_panel'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0060_window-list/position 60
+dconf write /org/mate/panel/objects/calculate_main_panel_0060_window-list/object-type "'applet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0060_window-list/applet-iid "'WnckletFactory::WindowListApplet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0060_window-list/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_0060_window-list"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_9960_notification-area/toplevel-id "'calculate_main_panel'"
+#dconf write /org/mate/panel/objects/calculate_main_panel_9960_notification-area/panel-right-stick true
+#dconf write /org/mate/panel/objects/calculate_main_panel_9960_notification-area/position 40
+dconf write /org/mate/panel/objects/calculate_main_panel_9960_notification-area/position 9960
+dconf write /org/mate/panel/objects/calculate_main_panel_9960_notification-area/object-type "'applet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9960_notification-area/applet-iid "'NotificationAreaAppletFactory::NotificationArea'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9960_notification-area/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_9960_notification-area"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/toplevel-id "'calculate_main_panel'"
+#dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/panel-right-stick true
+#dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/position 30
+dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/position 9970
+dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/object-type "'applet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/applet-iid "'ClockAppletFactory::ClockApplet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/locked true
+dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/prefs/format "'24-hour'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/prefs/speed-unit "'m/s'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/prefs/temperature-unit "'Centigrade'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9970_clock/prefs/custom-format "''"
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_9970_clock"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_9980_lock/toplevel-id "'calculate_main_panel'"
+#dconf write /org/mate/panel/objects/calculate_main_panel_9980_lock/panel-right-stick true
+#dconf write /org/mate/panel/objects/calculate_main_panel_9980_lock/position 20
+dconf write /org/mate/panel/objects/calculate_main_panel_9980_lock/position 9980
+dconf write /org/mate/panel/objects/calculate_main_panel_9980_lock/object-type "'action'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9980_lock/action-type "'lock'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9980_lock/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_9980_lock"
+
+dconf write /org/mate/panel/objects/calculate_main_panel_9990_logout/toplevel-id "'calculate_main_panel'"
+#dconf write /org/mate/panel/objects/calculate_main_panel_9990_logout/panel-right-stick true
+#dconf write /org/mate/panel/objects/calculate_main_panel_9990_logout/position 10
+dconf write /org/mate/panel/objects/calculate_main_panel_9990_logout/position 9990
+dconf write /org/mate/panel/objects/calculate_main_panel_9990_logout/object-type "'action'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9990_logout/action-type "'logout'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9990_logout/locked true
+ADDED_OBJECT="${ADDED_OBJECT} calculate_main_panel_9990_logout"
+
+
+## objects on calculate_bottom_panel
+
+#for d in $(echo /usr/share/applications/calculate-*.desktop| sed -nre 's:/usr/share/applications/calculate-(\S+).desktop:\1:gp'); do
+for d in browser mail chat im writer calc calculator imageedit imageview audioplayer videoplayer imageburn textedit terminal; do
+	dconf write "/org/mate/panel/objects/calculate_bottom_panel__${d}/toplevel-id" "'calculate_bottom_panel'"
+	dconf write "/org/mate/panel/objects/calculate_bottom_panel__${d}/object-type" "'launcher'"
+	dconf write "/org/mate/panel/objects/calculate_bottom_panel__${d}/launcher-location" "'calculate-${d}.desktop'"
+	dconf write "/org/mate/panel/objects/calculate_bottom_panel__${d}/locked" true
+	ADDED_OBJECT="${ADDED_OBJECT} calculate_bottom_panel__${d}"
+#	dconf write "/org/mate/panel/objects/calculate_bottom_panel__${d}/position" $((i+=10, i-10))
+done
+
+dconf write /org/mate/panel/general/object-id-list "[$(sed -re 's/(\S+)/"\1", /g' -e 's/, $//' <<< $ADDED_OBJECT)]"
+dconf write /org/mate/panel/general/toplevel-id-list "['calculate_main_panel', 'calculate_bottom_panel']"
+
+# background picture
+
+#?pkg(media-gfx/calculate-wallpapers)!=#
+dconf reset -f /org/mate/desktop/background/
+dconf write /org/mate/desktop/background/picture-filename "'/usr/share/wallpapers/Calculate_Linux/contents/images/#-os_x11_standart-#.jpg'"
+dconf write /org/mate/desktop/background/picture-options "'stretched'"
+#pkg#
+
+#?pkg(media-fonts/droid)!=#
+dconf write /org/mate/desktop/interface/font-name "'Droid Sans 10'"
+#pkg#
+
+#?pkg(x11-themes/calculate-xcursors)!=#
+dconf write /org/mate/desktop/interface/cursor-theme "'calculate'"
+#pkg#
+
+#?pkg(x11-themes/calculate-icon-theme)!=#
+dconf write /org/mate/desktop/interface/icon-theme "'Calculate'"
+#pkg#
+
+# show desktop icons
+dconf write /org/mate/desktop/background/show-desktop-icons true
+
+#?os_root_type==livecd#
+dconf write /org/mate/screensaver/lock-enabled false
+#os_root_type#
+#?os_root_type!=livecd#
+dconf write /org/mate/screensaver/lock-enabled true
+#os_root_type#
+
+#?pkg(mate-extra/mate-screensaver)!=&&pkg(app-accessibility/onboard)!=#
+dconf write /org/mate/screensaver/embedded-keyboard-enabled true
+dconf write /org/mate/screensaver/embedded-keyboard-command "'/usr/bin/onboard --xid'"
+#pkg#
+
+dconf write /org/mate/settings-daemon/plugins/media-keys/screensaver "'Scroll_Lock'"

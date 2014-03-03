@@ -1,0 +1,5 @@
+# Calculate format=openrc
+
+#?pkg(mate-base/mate-session-manager)!=#
+XSESSION="mate"
+#pkg#

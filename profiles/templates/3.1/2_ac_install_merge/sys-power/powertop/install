@@ -1,0 +1,5 @@
+# Calculate format=samba path=/etc/calculate name=ini.env protected ac_install_merge==on&&pkg(sys-power/powertop)!=
+
+
+[ver]
+powertop = #-pkg(sys-power/powertop)-#

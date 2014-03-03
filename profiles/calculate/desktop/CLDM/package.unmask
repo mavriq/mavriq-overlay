@@ -1,0 +1,13 @@
+## Unmask packages on mate-overlay
+#=*/*-1.6*::mate-overlay
+
+=app-text/mate-doc-utils-1.6*
+=dev-libs/libmateweather-1.6*
+=mate-base/libmatekbd-1.6*
+=mate-base/mate-common-1.6*
+=mate-base/mate-menus-1.6*
+=mate-base/mate-session-manager-1.6*
+=mate-base/mate-desktop-1.6*
+=mate-extra/mate-dialogs-1.6*
+=mate-extra/mate-polkit-1.6*
+=x11-libs/libmatewnck-1.6*

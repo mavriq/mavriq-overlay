@@ -1,0 +1,21 @@
+# Calculate format=xml_gconf
+<?xml version="1.0"?>
+<gconf>
+	<entry name="window_height" type="int" value="90"/>
+	<entry name="scroll_output" type="bool" value="true"/>
+	<entry name="compat_delete" type="string">
+		<stringvalue>delete-sequence</stringvalue>
+	</entry>
+	<entry name="compat_backspace" type="string">
+		<stringvalue>ascii-delete</stringvalue>
+	</entry>
+	<entry name="use_default_font" type="bool" value="true"/>
+	<entry name="scroll_keystroke" type="bool" value="true"/>
+	<entry name="history_size" type="int" value="10240"/>
+	<entry name="use_scrollbar" type="bool" value="true"/>
+	<entry name="window_tabbar" type="bool" value="true"/>
+	<entry name="window_losefocus" type="bool" value="true"/>
+	<entry name="prompt_on_quit" type="bool" value="true"/>
+	<entry name="use_popup" type="bool" value="true"/>
+	<entry name="use_trayicon" type="bool" value="true"/>
+</gconf>

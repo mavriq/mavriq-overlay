@@ -1,0 +1,5 @@
+CDISTRO="CLDM desktop"
+CL="builder client desktop console consolegui"
+USE="${USE} "
+USE="${USE} caja -gnome -kde mate"
+THEMES="CLDG CLDM"
