@@ -1,5 +1,5 @@
 ## Unmask packages on mate-overlay
-#=*/*-1.6*::mate-overlay
+=*/*-1.6*::mate-overlay
 
 =app-text/mate-doc-utils-1.6*
 =dev-libs/libmateweather-1.6*
