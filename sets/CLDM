@@ -15,7 +15,6 @@ mate-base/mate
 mate-base/mate-keyring
 mate-extra/mate-sensors-applet
 
-x11-terms/guake
 gnome-extra/gconf-editor
 
 net-ftp/filezilla
@@ -25,7 +24,7 @@ www-client/elinks
 
 www-client/chromium
 www-plugins/chrome-binary-plugins
-#	www-apps/chromium-adblock
+www-apps/chromium-adblock
 
 net-im/pidgin
 x11-plugins/pidgin-hotkeys
@@ -45,9 +44,9 @@ media-video/gtk-recordmydesktop
 media-video/gnome-mplayer
 
 sys-block/gparted
-app-accessibility/onboard
-
-#	x11-misc/slim
 
 x11-themes/calculate-icon-theme
 x11-themes/calculate-xcursors
+
+x11-terms/guake
+app-accessibility/onboard
