@@ -60,3 +60,4 @@
 # required by onboard (argument)
 =dev-python/python-virtkey-0.60.0 amd64 x86
 
+=app-cdr/simpleburn-1.7.0 amd64 x86
