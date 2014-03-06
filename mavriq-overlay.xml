@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories xmlns="" version="1.0">
+  <repo priority="50" quality="experimental" status="unofficial">
+    <name>mavriq</name>
+    <description>Mavriq Overlay</description>
+    <homepage>https://github.com/mavriq/mavriq-overlay</homepage>
+    <owner>
+      <email>mishanq@gmail.com</email>
+    </owner>
+    <source type="git">git://github.com/mavriq/mavriq-overlay.git</source>
+    <feed>https://github.com/mavriq/mavriq-overlay</feed>
+  </repo>
+</repositories>
