@@ -16,3 +16,5 @@ media-libs/mesa xa
 # required by @selected
 # required by @world (argument)
 x11-libs/libdrm libkms
+
+app-emulation/virtualbox extensions vnc
