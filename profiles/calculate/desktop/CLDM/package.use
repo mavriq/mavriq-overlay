@@ -9,6 +9,7 @@ gnome-extra/nm-applet modemmanager
 net-misc/networkmanager modemmanager resolvconf
 net-misc/remmina freerdp ssh vte
 net-analyzer/nmap gtk
+gnome-extra/zenity -webkit
 
 # required by mate-base/mate
 mate-base/mate extras
