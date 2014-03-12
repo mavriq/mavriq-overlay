@@ -3,7 +3,8 @@
 [Desktop Entry]
 Version=1.0
 Name=Dconfigure
-Comment=Предварительная настройка приложений через dconf
+Comment=Presetting applications using dconf
+Comment[ru]=Предварительная настройка приложений используя dconf
 Icon=dconf-editor
 Exec=sh -c 'for f in ~/.dconfigure.d/*; do [ -f "$f" -a -x "$f" ] && sleep .1 && "$f"; chmod -x "$f"; done'
 Terminal=false
