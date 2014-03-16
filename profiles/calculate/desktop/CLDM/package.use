@@ -33,3 +33,6 @@ mate-base/mate extras
 # required by x11-terms/guake
 # required by @world (argument)
 <x11-libs/vte-0.34 python
+# required by app-crypt/seahorse-3.10.2-r1
+# required by @world (argument)
+app-crypt/gcr vala
