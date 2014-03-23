@@ -257,10 +257,17 @@ dconf write /org/mate/marco/general/num-workspaces 8
 # TODO: отключать все ненужные сенсоры, оставлять лишь один-два
 #dconf_append /org/mate/panel/general/object-id-list calculate_main_panel_0060_sensors
 
-dconf write /org/mate/panel/objects/calculate_main_panel_0070_inhibit/applet-iid "'InhibitAppletFactory::InhibitApplet'"
 dconf write /org/mate/panel/objects/calculate_main_panel_0070_inhibit/toplevel-id "'calculate_main_panel'"
 dconf write /org/mate/panel/objects/calculate_main_panel_0070_inhibit/position 70
 dconf write /org/mate/panel/objects/calculate_main_panel_0070_inhibit/object-type "'applet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_0070_inhibit/applet-iid "'InhibitAppletFactory::InhibitApplet'"
 dconf write /org/mate/panel/objects/calculate_main_panel_0070_inhibit/panel-right-stick false
 dconf_append /org/mate/panel/general/object-id-list calculate_main_panel_0070_inhibit
+
+dconf write /org/mate/panel/objects/calculate_main_panel_9950_drive_mount/toplevel-id "'calculate_main_panel'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9950_drive_mount/position 9950
+dconf write /org/mate/panel/objects/calculate_main_panel_9950_drive_mount/panel-right-stick false
+dconf write /org/mate/panel/objects/calculate_main_panel_9950_drive_mount/object-type "'applet'"
+dconf write /org/mate/panel/objects/calculate_main_panel_9950_drive_mount/applet-iid "'DriveMountAppletFactory::DriveMountApplet'"
+dconf_append /org/mate/panel/general/object-id-list calculate_main_panel_9950_drive_mount
 #ini#
