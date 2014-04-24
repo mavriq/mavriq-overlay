@@ -1,1 +1,1 @@
-# Calculate append=skip merge(media-gfx/eom)!=
+# Calculate append=skip merge(media-gfx/eom)!=||merge(media-gfx/mate-image-viewer)!=
