@@ -38,9 +38,7 @@ net-misc/tigervnc
 net-misc/remmina
 media-video/gtk-recordmydesktop
 
-## becouse media-sound/rhythmbox-3 has PYTHON_SINGLE_TARGET="python3_3 -python3_2" PYTHON_TARGETS="-python3_2 -python3_3"
-<media-sound/rhythmbox-3
-
+media-sound/clementine
 media-video/smplayer
 
 sys-block/gparted

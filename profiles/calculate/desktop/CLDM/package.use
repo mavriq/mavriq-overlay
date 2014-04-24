@@ -1,5 +1,4 @@
 gnome-base/gvfs mtp
-media-sound/rhythmbox mtp
 mate-extra/mate-sensors-applet lm_sensors -video_cards_nvidia
 gnome-base/gvfs archive fuse
 mate-base/mate-applets networkmanager
@@ -10,6 +9,7 @@ net-misc/networkmanager modemmanager resolvconf
 net-misc/remmina freerdp ssh vte
 net-analyzer/nmap gtk
 gnome-extra/zenity -webkit
+media-sound/clementine mtp -udev
 
 # required by mate-base/mate
 mate-base/mate extras
