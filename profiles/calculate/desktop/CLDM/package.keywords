@@ -40,6 +40,9 @@
 =mate-extra/mate-sensors-applet-1.6* amd64 x86
 =x11-libs/libmatewnck-1.6* amd64 x86
 
+# must be version same as version of x11-libs/gtk+
+=dev-util/gtk-builder-convert-2.24.23 amd64 x86
+
 # required by net-misc/remmina
 # required by @CLDM
 # required by @custom
@@ -61,3 +64,27 @@
 =dev-python/python-virtkey-0.60.0 amd64 x86
 
 =app-cdr/simpleburn-1.7.0 amd64 x86
+
+# required by dev-libs/libappindicator-12.10.0
+# required by mate-base/mate-control-center-1.6.2
+# required by mate-base/mate-1.6.0
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+=dev-libs/libindicator-12.10.1-r300 amd64 x86
+# required by mate-base/mate-control-center-1.6.2
+# required by mate-base/mate-1.6.0
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+=dev-libs/libappindicator-12.10.0 amd64 x86
+# required by dev-libs/libappindicator-12.10.0
+# required by mate-base/mate-control-center-1.6.2
+# required by mate-base/mate-1.6.0
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+=dev-libs/libdbusmenu-12.10.2 amd64 x86
