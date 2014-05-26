@@ -10,6 +10,7 @@ net-misc/remmina freerdp ssh vte
 net-analyzer/nmap gtk
 gnome-extra/zenity -webkit
 media-sound/clementine mtp -udev
+mate-extra/mate-file-manager-sendto -cdr
 
 # required by mate-base/mate
 mate-base/mate extras
