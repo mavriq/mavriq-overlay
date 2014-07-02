@@ -1,5 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI=5
 inherit eutils
@@ -7,14 +8,13 @@ inherit eutils
 SLOT=0
 KEYWORDS="~x86 ~amd64"
 HOMEPAGE="http://www.jetbrains.com/pycharm/"
+SRC_URI="http://download-cf.jetbrains.com/python/${P}.tar.gz"
 
 if [[ "${PN}" == "pycharm-community" ]]; then
 	DESCRIPTION="PyCharm Community Edition"
-	SRC_URI="http://download-cf.jetbrains.com/python/pycharm-community-3.4.tar.gz"
 	LICENSE="Apache-2.0"
 elif [[ "${PN}" == "pycharm-professional" ]]; then
 	DESCRIPTION="PyCharm Professional Edition"
-	SRC_URI="http://download-cf.jetbrains.com/python/pycharm-professional-3.4.tar.gz"
 	S="${WORKDIR}/pycharm-${PV}"
 else
 	die "Unknown PN=\"${PN}\""
