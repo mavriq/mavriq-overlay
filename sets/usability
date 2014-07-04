@@ -3,7 +3,11 @@ app-misc/mc
 app-misc/screen
 app-text/wgetpaste
 dev-python/ipython
+
+sys-apps/dmidecode
+sys-apps/inxi
 sys-apps/lshw
+
 sys-apps/smartmontools
 sys-fs/avfs
 sys-process/htop
