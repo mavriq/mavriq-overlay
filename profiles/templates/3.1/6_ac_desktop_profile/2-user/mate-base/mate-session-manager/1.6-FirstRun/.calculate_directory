@@ -1,1 +1,1 @@
-# Calculate append=skip ini(update.mate)!=off&&ini(ver.mate)==&&pkg(mate-base/mate-session-manager)>1.6&&pkg(mate-base/mate-session-manager)<1.7
+# Calculate append=skip ini(update.mate)!=off&&ini(ver.mate)==&&pkg(mate-base/mate-session-manager)>1.6

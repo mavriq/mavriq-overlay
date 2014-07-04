@@ -1,4 +1,4 @@
-# Calculate path=~/.dconfigure.d chmod=700 ini(update.dconf)!=off&&ini(update.mate)!=off&&pkg(mate-base/mate-session-manager)>1.6&&pkg(mate-base/mate-session-manager)<1.7
+# Calculate path=~/.dconfigure.d chmod=700 ini(update.dconf)!=off&&ini(update.mate)!=off&&pkg(mate-base/mate-session-manager)>1.6
 #!/bin/bash
 
 ## Starting by ~/.config/autostart/dconf.desktop
