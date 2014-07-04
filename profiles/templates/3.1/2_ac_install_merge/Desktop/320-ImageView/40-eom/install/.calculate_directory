@@ -1,2 +1,1 @@
-# Calculate append=skip 
-pkg(media-gfx/eom)!=&&ini(desktop.imageview)==||pkg(media-gfx/eom)!=&&ini(desktop.imageview)==eom||pkg(media-gfx/mate-image-viewer)!=&&ini(desktop.imageview)==||pkg(media-gfx/mate-image-viewer)!=&&ini(desktop.imageview)==eom
+# Calculate append=skip ini(desktop.imageview)==||ini(desktop.imageview)==eom pkg(media-gfx/eom)!=||pkg(media-gfx/mate-image-viewer)!=
