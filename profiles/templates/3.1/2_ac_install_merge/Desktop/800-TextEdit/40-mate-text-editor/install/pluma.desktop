@@ -1,4 +1,4 @@
-# Calculate format=kde link=/usr/share/applications/pluma.desktop name=calculate-textedit.desktop mirror pkg(app-editors/mate-text-editor)!=
+# Calculate format=kde link=/usr/share/applications/pluma.desktop name=calculate-textedit.desktop mirror pkg(app-editors/mate-text-editor)!=||pkg(app-editors/pluma)!=
 
 # Hide icon
 [Desktop Entry]

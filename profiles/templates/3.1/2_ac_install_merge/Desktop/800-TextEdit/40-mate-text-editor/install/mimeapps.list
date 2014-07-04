@@ -2,7 +2,13 @@
 
 # Update info
 #-ini(desktop.updating, on)-#
+
+#?pkg(app-editors/mate-text-editor)#
 #-ini(desktop.textedit, mate-text-editor)-#
+#pkg#
+#?pkg(app-editors/pluma)#
+#-ini(desktop.textedit, pluma)-#
+#pkg#
 
 [Added Associations]
 text/plain=pluma.desktop;

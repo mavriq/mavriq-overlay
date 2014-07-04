@@ -1,4 +1,4 @@
-# Calculate format=compiz protected ini(desktop.textedit-removing)==on merge=app-editors/mate-text-editor
+# Calculate format=compiz protected ini(desktop.textedit-removing)==on merge=app-editors/mate-text-editor,app-editors/pluma
 
 #-ini(desktop.textedit-removing,)-#
 
