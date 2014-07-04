@@ -1,4 +1,6 @@
-@MATE
+mate-base/mate
+
+net-wireless/blueman:0
 
 =gnome-base/gdm-2*
 media-gfx/gdm-themes-calculate

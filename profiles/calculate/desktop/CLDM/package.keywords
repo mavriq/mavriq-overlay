@@ -88,3 +88,5 @@
 # required by @selected
 # required by @world (argument)
 =dev-libs/libdbusmenu-12.10.2 amd64 x86
+
+=net-wireless/blueman-1.23_p20140627 amd64 x86
