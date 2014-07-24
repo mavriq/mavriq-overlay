@@ -11,6 +11,7 @@ net-misc/tigervnc server xorgmodule
 # required by @selected
 # required by @world (argument)
 media-libs/mesa xa
+
 # required by x11-drivers/xf86-video-vmware-13.0.1
 # required by @custom
 # required by @selected
@@ -19,3 +20,11 @@ x11-libs/libdrm libkms
 
 app-emulation/virtualbox extensions vnc
 mail-client/thunderbird system-cairo system-icu system-jpeg system-sqlite
+
+# required by >app-office/libreoffice-4.2
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+media-libs/harfbuzz icu
+
