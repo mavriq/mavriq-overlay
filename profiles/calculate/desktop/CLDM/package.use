@@ -7,6 +7,8 @@ net-analyzer/nmap gtk
 gnome-extra/zenity -webkit
 media-sound/clementine mtp -udev
 mate-extra/mate-file-manager-sendto -cdr
+# тянет sys-fs/udisks:0. тут он может помешать
+=media-sound/clementine-1.2* -udisks
 
 # required by mate-base/mate
 mate-base/mate extras
