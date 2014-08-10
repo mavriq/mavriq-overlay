@@ -2,8 +2,8 @@ mate-base/mate
 
 net-wireless/blueman:0
 
-=gnome-base/gdm-2*
-media-gfx/gdm-themes-calculate
+x11-misc/lightdm
+media-gfx/lightdm-themes-calculate
 
 net-misc/networkmanager
 net-misc/networkmanager-openvpn
@@ -14,7 +14,6 @@ net-misc/networkmanager-vpnc
 app-crypt/seahorse
 gnome-extra/nm-applet
 mate-base/mate
-mate-base/mate-keyring
 mate-extra/mate-sensors-applet
 
 gnome-extra/gconf-editor
