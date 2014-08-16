@@ -13,7 +13,7 @@ net-misc/networkmanager-vpnc
 
 app-crypt/seahorse
 gnome-extra/nm-applet
-mate-base/mate
+x11-libs/gksu
 mate-extra/mate-sensors-applet
 
 gnome-extra/gconf-editor
