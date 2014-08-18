@@ -1,1 +1,2 @@
 net-misc/iperf threads
+sys-kernel/calculate-sources -plymouth -themes
