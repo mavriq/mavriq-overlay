@@ -1,0 +1,2 @@
+USE="${USE} "
+USE="${USE} bash-completion"
