@@ -4,6 +4,7 @@ net-wireless/blueman:0
 
 x11-misc/lightdm
 media-gfx/lightdm-themes-calculate
+media-gfx/splashutils
 
 net-misc/networkmanager
 net-misc/networkmanager-openvpn
