@@ -1,0 +1,10 @@
+# Calculate ini(mavriq.revision)<5 exec=/bin/bash
+
+#-ini(mavriq.revision,5)-#
+
+_conf='/etc/portage/package.keywords/kernel'
+[[ -f "$_conf" ]] || exit 0
+
+sed -re 's:^(~sys-kernel/calculate-sources-3.15.*)$:# \1:' -i "$_conf"
+
+exit 0

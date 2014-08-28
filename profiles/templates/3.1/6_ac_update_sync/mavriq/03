@@ -1,0 +1,10 @@
+# Calculate ini(mavriq.revision)<3 exec=/bin/bash
+
+#-ini(mavriq.revision,3)-#
+
+mkdir -pvm0755 /run/media || exit 0
+[[ -L /media ]] && exit 0
+[[ -d /media ]] && rmdir /media &>/dev/null
+[[ -e /media ]] || ln -s run/media /media
+
+exit 0

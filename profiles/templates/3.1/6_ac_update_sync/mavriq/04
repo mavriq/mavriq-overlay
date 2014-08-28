@@ -1,0 +1,11 @@
+# Calculate ini(mavriq.revision)<4 exec=/bin/bash
+
+#-ini(mavriq.revision,4)-#
+
+emerge --info | grep -qEw 'FEATURES="([^[:space:]"]+ )*getbinpkg' || \
+    echo -e '\n\nFEATURES="${FEATURES} getbinpkg"' >> /etc/portage/make.conf/make.conf
+
+emerge --info | grep -qEw 'FEATURES="([^[:space:]"]+ )*buildpkg' || \
+    echo -e '\n\nFEATURES="${FEATURES} buildpkg"' >> /etc/portage/make.conf/make.conf
+
+exit 0

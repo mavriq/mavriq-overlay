@@ -1,0 +1,11 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ini(mavriq.revision)<2 ini(mavriq.kernel)!=off
+
+[mavriq]
+revision = 2
+kernel = on
+
+[kernel]
+os_kernel_highmem = 64G
+os_broadcom-sta = on
+os_classic_netname = on
+mavriq_fixes = on

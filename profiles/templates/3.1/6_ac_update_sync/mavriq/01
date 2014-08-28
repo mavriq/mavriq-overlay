@@ -1,0 +1,11 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ini(mavriq.revision)<1
+
+[mavriq]
+###########################################
+#?os_locale_language==ru#
+## Настройки, специфичные для mavriq-overlay
+#os_locale_language#
+#?os_locale_language!=ru#
+## options specific for mavriq-overlay
+#os_locale_language#
+revision = 1
