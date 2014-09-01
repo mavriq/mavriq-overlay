@@ -3,6 +3,7 @@ net-misc/openvpn iproute2
 sys-block/gparted dmraid fat jfs mdadm ntfs reiserfs xfs
 www-client/elinks javascript lua
 net-misc/tigervnc server xorgmodule
+www-client/chromium tcmalloc
 
 #>=sys-fs/lvm2-2.02.103 -thin
 
