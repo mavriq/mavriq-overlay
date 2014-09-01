@@ -1,0 +1,30 @@
+# Calculate ini(mavriq.revision)<6 exec=/bin/bash
+
+#-ini(mavriq.revision,6)-#
+
+## Добавляем замаскированными приложения, для которых есть бинарные пакеты в /etc/portage/sets/custom 
+
+BINPKGS="app-cdr/gcdemu \
+ app-editors/vim \
+ app-editors/gvim \
+ app-emulation/virtualbox \
+ app-emulation/wine \
+ app-emulation/winetricks \
+ app-laptop/tpb \
+ app-laptop/tp_smapi \
+ app-text/xournal \
+ dev-util/geany \
+ media-gfx/cellwriter \
+ net-misc/bridge-utils \
+ sys-apps/setserial \
+ sys-auth/thinkfinger \
+ sys-fs/sshfs-fuse \
+ virtual/jre"
+
+for p in $BINPKGS; do
+    ls -ld /var/db/pkg/$p-[0-9]* &>/dev/null || \
+         grep -qw $p /etc/portage/sets/* 2>/dev/null || \
+         echo -e "#\t$p" >> /etc/portage/sets/custom
+done
+
+exit 0
