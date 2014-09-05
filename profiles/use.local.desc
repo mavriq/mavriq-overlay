@@ -1,0 +1,4 @@
+media-gfx/photoqt:exiv2 - 
+media-gfx/photoqt:graphicsmagick - Use graphicsmagick library
+media-gfx/photoqt:phonon - Use PhononUse exiv2 library
+media-gfx/photoqt:qtonly - ONLY USE QT-ONLY FEATURES
