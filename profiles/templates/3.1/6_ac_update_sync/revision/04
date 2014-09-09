@@ -1,4 +1,4 @@
-# Calculate ini(mavriq.revision)<4 exec=/bin/bash
+# Calculate exec=/bin/bash ini(mavriq.revision)<4&&ini(update-mavriq.revision)<4
 
 #-ini(mavriq.revision,4)-#
 
