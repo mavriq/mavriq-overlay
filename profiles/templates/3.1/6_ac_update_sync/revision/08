@@ -1,0 +1,24 @@
+# Calculate exec=/bin/bash ini(update-mavriq.revision)<8
+
+#-ini(update-mavriq.revision,8)-#
+
+(
+	info=$(emerge --info)
+	PORTDIR=$(echo "$info"| sed -nre 's/^(.* )?PORTDIR="([^"]*)"( .*)?$/\2/p')
+	LINGUAS=$(echo "$info"| sed -nre 's/^(.* )?LINGUAS="([^"]*)"( .*)?$/\2/p')
+	lang=$(echo "$LINGUAS" | tr 'A-Z' 'a-z'| tr _ -)
+
+	cd "$PORTDIR" || exit 0
+	if ls -d /var/db/pkg/app-text/aspell-[0-9]* >/dev/null; then
+		for l in $lang; do
+			ls -1d "app-dicts/aspell-$l"*
+		done
+	fi
+	if ls -d /var/db/pkg/app-text/hunspell-[0-9]* >/dev/null; then
+		for l in $lang; do
+			ls -1d "app-dicts/myspell-$l"*
+		done
+	fi
+) 2>/dev/null | sort| uniq >> /var/lib/portage/world
+
+exit 0
