@@ -18,5 +18,6 @@ net-analyzer/mtr
 net-analyzer/nmap
 net-analyzer/trafshow
 net-dns/bind-tools
-net-misc/iperf
+net-misc/iperf:2
+net-misc/iperf:3
 net-misc/whois
