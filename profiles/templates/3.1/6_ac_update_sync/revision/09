@@ -1,0 +1,8 @@
+# Calculate exec=/bin/bash ini(update-mavriq.revision)<9
+
+#-ini(update-mavriq.revision,9)-#
+
+grep sunrise /var/db/pkg/*/*/repository| grep -qv app-accessibility/onboard && exit 0
+
+echo "Uninstalling sunrise overlay"
+layman -d sunrise
