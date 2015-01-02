@@ -1,11 +1,9 @@
 sys-kernel/calculate-sources -minimal
 net-misc/openvpn iproute2
-sys-block/gparted dmraid fat jfs mdadm ntfs reiserfs xfs
+sys-block/gparted btrfs dmraid f2fs fat jfs mdadm ntfs reiserfs xfs
 www-client/elinks javascript lua
 net-misc/tigervnc server xorgmodule
 www-client/chromium tcmalloc
-
-#>=sys-fs/lvm2-2.02.103 -thin
 
 # required by x11-drivers/xf86-video-vmware-13.0.1
 # required by @custom
@@ -29,3 +27,11 @@ mail-client/thunderbird system-cairo system-icu system-jpeg system-sqlite
 # required by @world (argument)
 media-libs/harfbuzz icu
 
+
+x11-base/xorg-server kdrive xnest
+dev-libs/boost python
+
+dev-libs/nss utils
+
+sys-fs/ecryptfs-utils gpg
+x11-drivers/xf86-video-intel glamor uxa

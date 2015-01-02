@@ -8,7 +8,7 @@ inherit cmake-utils versionator
 
 DESCRIPTION="A basic application for burning CDs and DVDs"
 HOMEPAGE="http://simpleburn.tuxfamily.org"
-SRC_URI="http://${PN}.tuxfamily.org/IMG/bz2/${P}.tar.bz2"
+SRC_URI="http://${PN}.tuxfamily.org/IMG/gz/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -1,37 +1,66 @@
-gnome-base/gvfs mtp
-mate-extra/mate-sensors-applet lm_sensors -video_cards_nvidia
-gnome-base/gvfs archive fuse
+mate-base/mate bluetooth extras
+
+gnome-base/gvfs http mtp
+mate-extra/mate-sensors-applet lm_sensors -hddtemp -video_cards_nvidia
+gnome-base/gvfs archive fuse udisks
 app-office/libreoffice -gtk gtk3
 net-misc/remmina freerdp ssh vte
-net-analyzer/nmap gtk
-gnome-extra/zenity -webkit
-media-sound/clementine mtp -udev
-mate-extra/mate-file-manager-sendto -cdr
+net-analyzer/nmap ncat ndiff nping zenmap
+
 # тянет sys-fs/udisks:0. тут он может помешать
 =media-sound/clementine-1.2* -udisks
+media-sound/clementine mtp -udev
 
-# required by mate-base/mate
-mate-base/mate extras
-# required by x11-misc/mate-menu-editor-1.6.0::mate-overlay
-# required by mate-base/mate-1.6.0::mate-overlay
+# required by x11-misc/mozo
 # required by mate-base/mate
 # required by @world (argument)
->=mate-base/mate-menus-1.6.0 python
-# required by mate-base/mate-file-manager-1.6.3::mate-overlay
-# required by mate-base/mate-control-center-1.6.2::mate-overlay
-# required by mate-base/mate-1.6.0::mate-overlay
-# required by mate-base/mate
-# required by @world (argument)
->=gnome-base/gvfs-1.10.1 udisks
-# required by app-office/libreoffice-4.1.3.2-r2
-# required by @world (argument)
-=media-libs/harfbuzz-0.9.23 icu
-# required by net-p2p/deluge-1.3.6
-# required by @world (argument)
-=net-libs/rb_libtorrent-0.16.10 python
+mate-base/mate-menus python
+
 # required by x11-terms/guake
 # required by @world (argument)
 <x11-libs/vte-0.34 python
-# required by app-crypt/seahorse-3.10.2-r1
+# required by app-crypt/seahorse
 # required by @world (argument)
 app-crypt/gcr vala
+
+# required by media-gfx/splashutils-1.5.4.4-r1[truetype]
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+# required by media-gfx/splashutils (argument)
+>=sys-libs/zlib-1.2.8-r1 static-libs
+# required by virtual/jpeg-0-r2
+# required by media-gfx/splashutils-1.5.4.4-r1
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+# required by media-gfx/splashutils (argument)
+=media-libs/libjpeg-turbo-1.3.1 static-libs
+# required by media-gfx/splashutils-1.5.4.4-r1
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+# required by media-gfx/splashutils (argument)
+>=virtual/jpeg-0-r2 static-libs
+# required by media-gfx/splashutils-1.5.4.4-r1[truetype]
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+# required by media-gfx/splashutils (argument)
+=app-arch/bzip2-1.0.6-r6 static-libs
+# required by media-gfx/splashutils-1.5.4.4-r1[gpm]
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+>=sys-libs/gpm-1.20.7-r2 static-libs
+# required by media-gfx/splashutils-1.5.4.4-r1[truetype]
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+=media-libs/freetype-2.5.3-r1 static-libs

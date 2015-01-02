@@ -1,6 +1,7 @@
 app-admin/pwgen
 app-misc/mc
 app-misc/screen
+app-shells/gentoo-bashcomp
 app-text/wgetpaste
 dev-python/ipython
 
@@ -21,3 +22,4 @@ net-dns/bind-tools
 net-misc/iperf:2
 net-misc/iperf:3
 net-misc/whois
+www-client/elinks

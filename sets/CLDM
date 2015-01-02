@@ -1,7 +1,5 @@
 mate-base/mate
 
-net-wireless/blueman:0
-
 x11-misc/lightdm
 media-gfx/lightdm-themes-calculate
 media-gfx/splashutils
@@ -11,6 +9,22 @@ net-misc/networkmanager-openvpn
 net-misc/networkmanager-pptp
 #net-misc/networkmanager-sstp
 net-misc/networkmanager-vpnc
+
+app-arch/engrampa
+  app-arch/p7zip
+  app-arch/unace
+  app-arch/arj
+  app-arch/cpio
+  app-arch/dpkg
+  app-cdr/cdrtools
+  app-arch/zip
+  app-arch/lha
+  app-arch/xz-utils
+  app-arch/lzop
+  app-arch/unrar
+  app-arch/rpm
+  app-arch/stuffit
+  app-arch/zoo
 
 app-crypt/seahorse
 gnome-extra/nm-applet
@@ -22,7 +36,6 @@ gnome-extra/gconf-editor
 net-ftp/filezilla
 mail-client/thunderbird
 app-office/libreoffice
-www-client/elinks
 
 www-client/chromium
 www-plugins/chrome-binary-plugins
