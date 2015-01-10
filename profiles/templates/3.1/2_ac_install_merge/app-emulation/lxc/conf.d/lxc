@@ -1,0 +1,38 @@
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+## Additional options to start containers
+
+# Here you can set the default value of some variables for all containers
+#rc_lxc__logpriority=WARN
+#rc_lxc__stop_power_timeout=15
+#rc_lxc__stop_nokill_timeout=15
+#rc_lxc__halt_timeout=15
+
+## options for lxc.foo.bar:
+# Set  log priority to LEVEL. Default value == $rc_lxc__logpriority.
+# Possible values are : FATAL, CRIT, WARN, ERROR, NOTICE, INFO, DEBUG.
+#rc_lxc_foo_bar__logpriority=DEBUG
+
+# Output to an alternate log FILE.
+#rc_lxc_foo_bar__logfile="/var/log/lxc/foo.bar.log"
+
+# PID file
+#rc_lxc_foo_bar__pidfile="/run/lxc/foo.bar.pid"
+
+# Specify a file to log the container's console output to. The default is no log.
+#rc_lxc_foo_bar__consolelog=/var/log/lxc/foo.bar.consolelog
+
+## Options to stop container
+# How long to wait for stopping container after sending a signal SIGPWR
+# Set blank value to skip this step. Default value see in rc_lxc__stop_power_timeout
+# rc_lxc_foo_bar__stop_power_timeout
+
+# How long to wait for stopping the container before it is forced to stop
+# Set blank value to skip this step. Default value see in rc_lxc__stop_power_timeout
+#rc_lxc_foo_bar__stop_nokill_timeout
+
+# How long to wait for stopping the container.
+# An empty value - wait all the time. Default value see in rc_lxc__halt_timeout
+#rc_lxc_foo_bar__halt_timeout

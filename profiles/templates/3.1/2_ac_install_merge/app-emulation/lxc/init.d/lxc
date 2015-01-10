@@ -1,0 +1,177 @@
+#!/sbin/runscript
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+#_name=${SVCNAME#*.}
+CONTAINER=${SVCNAME#*.}
+name="Linux Container ${CONTAINER}"
+extra_commands="info halt unfreeze"
+extra_started_commands="freeze attach"
+
+description="Service to start Linux Container"
+description_info="Get info about container"
+description_halt="Forse to killing container"
+description_freeze="Freeze running container"
+description_unfreeze="Unfreeze freezed container"
+description_attach="Start a shell inside a running container"
+
+## if necessary, you can manually set the value of these variables in the /etc/rc.conf or /etc/conf.d/lxc
+## be sure when you change this variables
+: ${rc_lxc__cgrouppath:=/sys/fs/cgroup/*/lxc}
+# to avoid situation like as this https://bugs.gentoo.org/show_bug.cgi?id=416643
+: ${rc_lxc__lxcpath:=$(lxc-config lxc.lxcpath)}
+## https://bugs.gentoo.org/show_bug.cgi?id=525956
+[ -f "${rc_lxc__lxcpath}/${CONTAINER}.conf" ] && \
+    CONFIGFILE="${rc_lxc__lxcpath}/${CONTAINER}.conf" || \
+    CONFIGFILE="${rc_lxc__lxcpath}/${CONTAINER}/config"
+
+eval pidfile="\${rc_${SVCNAME//./_}__pidfile:-/run/lxc/\${CONTAINER}.pid}"
+eval logfile="\${rc_${SVCNAME//./_}__logfile:-/var/log/lxc/\${CONTAINER}.log}"
+eval logpriority="\${rc_${SVCNAME//./_}__logpriority:-\${rc_lxc__logpriority:-WARN}}"
+eval CONSOLELOG="\$rc_${SVCNAME//./_}__consolelog"
+
+command="/usr/sbin/lxc-start"
+command_args="--name '${CONTAINER}' --rcfile '${CONFIGFILE}' --logfile '${logfile}' --logpriority '${logpriority}' --pidfile '${pidfile}' --daemon${CONSOLELOG:+ --console-log '${CONSOLELOG}'}"
+required_files=${CONFIGFILE}
+
+lxc_get_net_link_type() {
+    awk 'BEGIN { FS="[ \t]*=[ \t]*"; _link=""; _type="" }
+        $1 == "lxc.network.type" {_type=$2;}
+        $1 == "lxc.network.link" {_link=$2;}
+        {if(_link != "" && _type != ""){
+            printf("%s:%s\n", _link, _type );
+            _link=""; _type="";
+        }; }' < "${CONFIGFILE}"
+}
+
+checkconfig() {
+    if [[ "${SVCNAME}" = "${CONTAINER}" ]]; then
+        eerror "You have to create an init script for each container:"
+        eerror " ln -s lxc /etc/init.d/lxc.container"
+        return 1
+    fi
+    local _ret=0
+    ## protection against bad SVCNAME
+    ## Since ${SVCNAME//./_} may be used in some rc_.. environment, names must be correct
+    if [[ -n "${SVCNAME//[0-9A-Za-z.]/}"  ]]; then
+        eerror "Bad service name '${SVCNAME}'"
+        eerror "You can not use dashes in service name"
+        _ret=1
+    fi
+    if [[ "${SVCNAME//_/}" != "${SVCNAME}" ]]; then
+        ewarn "This is a bad idea to use underline in the name of container service"
+        ewarn "Some environments may conflict with services like as '${SVCNAME//_/.}'"
+    fi
+    return $_ret
+}
+
+depend() {
+    checkconfig &>/dev/null || return 0
+    config "${CONFIGFILE}"
+    need localmount
+    local _x _if
+    for _x in $(lxc_get_net_link_type); do
+        _if=${_x%:*}
+        case "${_x##*:}" in
+            # when the network type is set to phys, we can make use of a
+            # network service (for instance to set it up before we disable
+            # the net_admin capability), but we might also not set it up
+            # at all on the host and leave the net_admin capable service
+            # to take care of it.
+            phys)	use net.${_if} ;;
+            *)	need net.${_if} ;;
+        esac
+    done
+}
+
+start_pre() {
+    checkconfig || return 1
+    if lxc-info -n "${CONTAINER}" 2>/dev/null| grep -qiE '^state:\s+stopped$'; then
+        local _c _p=
+        for _c in ${rc_lxc__cgrouppath}/"${CONTAINER}"; do
+            [ -e "$_c" ] && \
+                _p="$_p '$_c'" && \
+                eerror "Found '$_c'. Perhaps the last time the container '${CONTAINER}' was completed with an error."
+        done
+        [ -z "$_p" ] && \
+            checkpath -q -d "$(dirname "${pidfile}")" && \
+            return 0
+        ewarn "Possibly for you can help comand: rmdir${_p}"
+        return 1
+    else
+        if lxc-info -n "${CONTAINER}" 2>/dev/null | grep -qie '^state:'; then
+            eerror "Can't start ${name}. It's not sopped."
+        else
+            eerror "Can't start ${name}. It's not found."
+        fi
+    fi
+}
+
+start_post() {
+    ebegin "Try to make sure ${name} started correctly"
+    ewaitfile 15 ${rc_lxc__cgrouppath}/"${CONTAINER}"
+    eend $?
+}
+
+_halt(){
+    eval local HALT_TIMEOUT=\${rc_${SVCNAME//./_}__halt_timeout-${rc_lxc__halt_timeout-15}}
+    ebegin "Halting ${name}"
+    ( lxc-stop --name "${CONTAINER}" --kill --nowait & ) &>/dev/null
+    lxc-wait --name "${CONTAINER}" -s STOPPED ${HALT_TIMEOUT:+-t ${HALT_TIMEOUT}}
+    if eend $? "Some error on halting ${name}"; then
+        mark_service_stopped "${SVCNAME}"
+    else
+        mark_service_stopping "${SVCNAME}"
+        return 1
+    fi
+}
+
+halt() {
+    service_stopped "${SVCNAME}" && ewarn "WARNING: ${SVCNAME} is already marked as stopped, but I still try to kill ${name}"
+    _halt
+}
+
+stop() {
+    eval local STOP_PWR_TIMEOUT=\${rc_${SVCNAME//./_}__stop_power_timeout-${rc_lxc__stop_power_timeout-15}}
+    eval local STOP_NOKILL_TIMEOUT=\${rc_${SVCNAME//./_}__stop_nokill_timeout-${rc_lxc__stop_nokill_timeout-15}}
+    if ! service_wasinactive "${SVCNAME}"; then
+        if [ -n "${STOP_PWR_TIMEOUT}" ]; then
+            ebegin "Sending signal to stop ${name}"
+            kill -s SIGPWR "$(lxc-info --pid --no-humanize --name "${CONTAINER}")" &>/dev/null
+            lxc-wait --name "${CONTAINER}" -s STOPPED -t ${STOP_PWR_TIMEOUT}
+            eend $? && return 0
+        fi
+        if [ -n "${STOP_NOKILL_TIMEOUT}" ]; then
+            ebegin "Try to request a clean shutdown ${name}"
+            ( lxc-stop --name "${CONTAINER}" --nokill & ) &>/dev/null
+            lxc-wait --name "${CONTAINER}" -s STOPPED -t ${STOP_NOKILL_TIMEOUT}
+            eend $? && return 0
+        fi
+    fi
+    _halt
+}
+
+freeze() {
+    ebegin "Freeze all the processes of the container ${CONTAINER}"
+    lxc-freeze --name "${CONTAINER}"
+    eend $? "Problem whith freezing container ${CONTAINER}" && mark_service_inactive "${SVCNAME}"
+}
+
+unfreeze() {
+    if service_inactive "${SVCNAME}"; then
+        ebegin "Unfreeze container ${CONTAINER}"
+        lxc-unfreeze --name "${CONTAINER}"
+        eend $? "Problem whith unfreezing container ${CONTAINER}" && mark_service_started "${SVCNAME}"
+    else
+        eerror "${SVCNAME}: cannot \`unfreeze' as it has not been started"
+    fi
+}
+
+info() {
+    lxc-info --name "${CONTAINER}"
+}
+
+attach() {
+    lxc-attach --name "${CONTAINER}"
+}
