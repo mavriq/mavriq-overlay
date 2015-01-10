@@ -3,9 +3,8 @@
 #-ini(update-mavriq.revision,8)-#
 
 (
-	info=$(emerge --info)
-	PORTDIR=$(echo "$info"| sed -nre 's/^(.* )?PORTDIR="([^"]*)"( .*)?$/\2/p')
-	LINGUAS=$(echo "$info"| sed -nre 's/^(.* )?LINGUAS="([^"]*)"( .*)?$/\2/p')
+	PORTDIR=$(portageq envvar PORTDIR)
+	LINGUAS=$(portageq envvar LINGUAS)
 	lang=$(echo "$LINGUAS" | tr 'A-Z' 'a-z'| tr _ -)
 
 	cd "$PORTDIR" || exit 0
