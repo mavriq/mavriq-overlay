@@ -1,0 +1,9 @@
+# Calculate format=samba path=/etc/calculate name=ini.env ini(update-mavriq.revision)<10
+
+[update-mavriq]
+revision = 10
+
+#?ini(kernel.family)==#
+[kernel]
+family = 
+#ini#
