@@ -1,2 +1,9 @@
+ACCEPT_LICENSE="*"
+FEATURES="getbinpkg"
+
 USE="${USE} "
+USE="${USE} acl gpg xattr"
 USE="${USE} bash-completion"
+USE="${USE} seccomp"
+USE="python_single_target_python2_7"
+PYTHON_SINGLE_TARGET="python2_7"

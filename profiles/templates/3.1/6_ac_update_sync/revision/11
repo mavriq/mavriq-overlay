@@ -1,0 +1,13 @@
+# Calculate exec=/bin/bash ini(update-mavriq.revision)<11
+
+#-ini(update-mavriq.revision,11)-#
+
+_run_() { echo "# $@"; "$@"; }
+
+readlink /etc/portage/make.profile| grep -q mavriq/profiles/calculate/desktop/CLDM/x86 && \
+    _run_ eselect profile set mavriq-overlay:CLDM/x86
+
+readlink /etc/portage/make.profile| grep -q mavriq/profiles/calculate/desktop/CLDM/amd64 && \
+    _run_ eselect profile set mavriq-overlay:CLDM/amd64
+
+_run_ eselect profile show

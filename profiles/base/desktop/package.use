@@ -1,5 +1,3 @@
-sys-kernel/calculate-sources -minimal
-net-misc/openvpn iproute2
 sys-block/gparted btrfs dmraid f2fs fat jfs mdadm ntfs reiserfs xfs
 www-client/elinks javascript lua
 net-misc/tigervnc server xorgmodule
@@ -32,6 +30,3 @@ x11-base/xorg-server kdrive xnest
 dev-libs/boost python
 
 dev-libs/nss utils
-
-sys-fs/ecryptfs-utils gpg
-x11-drivers/xf86-video-intel glamor uxa

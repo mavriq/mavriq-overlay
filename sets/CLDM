@@ -1,9 +1,21 @@
-mate-base/mate
-
-x11-misc/lightdm
 media-gfx/lightdm-themes-calculate
 media-gfx/splashutils
+x11-misc/lightdm
 
+app-accessibility/onboard
+app-crypt/seahorse
+mate-base/mate
+mate-extra/mate-sensors-applet
+gnome-extra/gconf-editor
+sys-apps/gnome-disk-utility
+sys-block/gparted
+x11-libs/gksu
+x11-terms/guake
+
+x11-themes/calculate-icon-theme
+x11-themes/calculate-xcursors
+
+gnome-extra/nm-applet
 net-misc/networkmanager
 net-misc/networkmanager-openvpn
 net-misc/networkmanager-pptp
@@ -26,20 +38,13 @@ app-arch/engrampa
   app-arch/stuffit
   app-arch/zoo
 
-app-crypt/seahorse
-gnome-extra/nm-applet
-x11-libs/gksu
-mate-extra/mate-sensors-applet
-
-gnome-extra/gconf-editor
-
-net-ftp/filezilla
-mail-client/thunderbird
 app-office/libreoffice
-
+app-text/fbreader
+mail-client/thunderbird
+net-ftp/filezilla
+www-apps/chromium-adblock
 www-client/chromium
 www-plugins/chrome-binary-plugins
-www-apps/chromium-adblock
 
 net-im/pidgin
 x11-plugins/pidgin-hotkeys
@@ -51,18 +56,10 @@ net-p2p/deluge
 
 net-misc/tigervnc
 net-misc/remmina
-media-video/gtk-recordmydesktop
 
 media-sound/clementine
 media-video/smplayer
 
-sys-block/gparted
-
-x11-themes/calculate-icon-theme
-x11-themes/calculate-xcursors
-
-x11-terms/guake
-app-accessibility/onboard
 app-cdr/simpleburn
-app-text/fbreader
-sys-apps/gnome-disk-utility
+media-video/cheese
+media-video/gtk-recordmydesktop

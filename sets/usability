@@ -12,6 +12,7 @@ sys-apps/lshw
 sys-apps/smartmontools
 sys-fs/avfs
 sys-process/htop
+sys-process/iotop
 sys-process/lsof
 
 net-analyzer/bmon
@@ -23,3 +24,4 @@ net-misc/iperf:2
 net-misc/iperf:3
 net-misc/whois
 www-client/elinks
+www-client/lynx

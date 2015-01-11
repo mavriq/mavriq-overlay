@@ -1,3 +1,7 @@
-net-misc/iperf threads
-sys-kernel/calculate-sources -plymouth -themes firmware
 media-fonts/terminus-font -X -pcf
+net-misc/iperf threads
+net-misc/openvpn iproute2
+sys-apps/util-linux bash-completion
+sys-fs/ecryptfs-utils gpg
+sys-fs/udev gudev
+sys-kernel/calculate-sources firmware -minimal -plymouth -themes

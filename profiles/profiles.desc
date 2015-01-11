@@ -1,2 +1,2 @@
-amd64		calculate/desktop/CLDM/amd64		stable
-x86		calculate/desktop/CLDM/x86		stable
+amd64		CLDM/amd64		stable
+x86		CLDM/x86		stable
