@@ -1,3 +1,4 @@
+sys-fs/eudev gudev kmod
 sys-apps/calculate-utils client desktop console qt4
 mate-base/mate extras
 
