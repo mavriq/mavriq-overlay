@@ -72,3 +72,6 @@ app-crypt/gcr vala
 dev-db/sqlite secure-delete
 =media-libs/libpng-1.6* static-libs
 net-libs/rb_libtorrent python
+
+# required by www-client/firefox[system-libvpx]
+media-libs/libvpx postproc

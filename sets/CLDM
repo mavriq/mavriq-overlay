@@ -45,6 +45,8 @@ net-ftp/filezilla
 www-apps/chromium-adblock
 www-client/chromium
 www-plugins/chrome-binary-plugins
+www-client/firefox
+www-plugins/adobe-flash
 
 net-im/pidgin
 x11-plugins/pidgin-hotkeys
