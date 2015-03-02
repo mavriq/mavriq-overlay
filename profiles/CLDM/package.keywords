@@ -20,3 +20,10 @@ x11-plugins/pidgin-otr amd64 x86
 # required by @selected
 # required by @world
 =dev-python/python-virtkey-0.60.0 amd64 x86
+
+# required by www-client/firefox-36.0
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world (argument)
+=dev-libs/nss-3.17.4 amd64 x86
