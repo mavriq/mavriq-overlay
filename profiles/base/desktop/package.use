@@ -1,7 +1,8 @@
 sys-block/gparted btrfs dmraid f2fs fat jfs mdadm ntfs reiserfs xfs
 www-client/elinks javascript lua
 net-misc/tigervnc server xorgmodule
-www-client/chromium tcmalloc
+www-client/chromium tcmalloc widevine
+www-plugins/chrome-binary-plugins widevine
 
 # required by x11-drivers/xf86-video-vmware-13.0.1
 # required by @custom
