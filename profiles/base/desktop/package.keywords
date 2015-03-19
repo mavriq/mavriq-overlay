@@ -5,4 +5,4 @@
 
 <app-emulation/winetricks-99999999 x86 amd64
 
-=x11-drivers/xf86-video-virtualbox-4.3.20 x86 amd64
+=x11-drivers/xf86-video-virtualbox-4.3.26 x86 amd64
