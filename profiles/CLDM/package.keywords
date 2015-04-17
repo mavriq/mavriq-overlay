@@ -13,6 +13,13 @@ x11-plugins/pidgin-otr amd64 x86
 # required by @selected
 # required by @world
 <net-misc/remmina-9999 amd64 x86
+# required by net-misc/remmina
+# required by @CLDM
+# required by @custom
+# required by @selected
+# required by @world
+<net-misc/freerdp-9999 amd64 x86
+
 
 # required by app-accessibility/onboard-0.94.0::mavriq-overlay
 # required by @CLDM
