@@ -75,3 +75,5 @@ net-libs/rb_libtorrent python
 
 # required by www-client/firefox[system-libvpx]
 media-libs/libvpx postproc
+
+mail-client/thunderbird -system-libvpx
