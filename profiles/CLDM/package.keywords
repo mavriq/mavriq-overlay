@@ -1,3 +1,4 @@
+net-misc/modem-manager-gui amd64 x86
 www-client/firefox amd64 x86
 =x11-terms/guake-0.5.2 amd64 x86
 =app-accessibility/onboard-0.94.0 amd64 x86

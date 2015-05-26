@@ -64,3 +64,4 @@ media-video/smplayer
 app-cdr/simpleburn
 media-video/cheese
 media-video/gtk-recordmydesktop
+net-misc/modem-manager-gui
