@@ -17,7 +17,6 @@ media-libs/mesa xa
 x11-libs/libdrm libkms
 
 app-emulation/virtualbox extensions vnc
-mail-client/thunderbird system-cairo system-icu system-jpeg system-sqlite
 
 # required by >app-office/libreoffice-4.2
 # required by @CLDM
