@@ -1,47 +1,37 @@
 net-misc/modem-manager-gui amd64 x86
 www-client/firefox amd64 x86
-=x11-terms/guake-0.5.2 amd64 x86
-=app-accessibility/onboard-0.94.0 amd64 x86
 app-cdr/simpleburn amd64 x86
-=net-misc/tigervnc-1.3.1-r1 amd64 x86
+
+app-emulation/virtualbox  amd64 x86
+app-emulation/virtualbox-bin amd64 x86
+app-emulation/virtualbox-additions amd64 x86
+app-emulation/virtualbox-extpack-oracle amd64 x86
+app-emulation/virtualbox-modules amd64 x86
+x11-drivers/xf86-video-virtualbox amd64 x86
 
 net-libs/libotr amd64 x86
 x11-plugins/pidgin-otr amd64 x86
 
 =sys-devel/gcc-4.9.2 amd64 x86
 
+=sys-kernel/calculate-sources-4.0.4-r1 amd64 x86
+
 # required by net-misc/remmina
 # required by @CLDM
 # required by @custom
-# required by @selected
 # required by @world
 <net-misc/remmina-9999 amd64 x86
 # required by net-misc/remmina
 # required by @CLDM
 # required by @custom
-# required by @selected
 # required by @world
 <net-misc/freerdp-9999 amd64 x86
 
-
-# required by app-accessibility/onboard-0.94.0::mavriq-overlay
+# required by www-client/firefox-38.0.1
 # required by @CLDM
 # required by @custom
-# required by @selected
 # required by @world
-=dev-python/python-virtkey-0.60.0 amd64 x86
+=dev-libs/nss-3.19-r1 amd64 x86
 
-# required by www-client/firefox-36.0
-# required by @CLDM
-# required by @custom
-# required by @selected
-# required by @world (argument)
-=dev-libs/nss-3.17.4 amd64 x86
-
-=sys-kernel/calculate-sources-4.0.4 amd64 x86
-x11-drivers/xf86-video-virtualbox amd64 x86
-app-emulation/virtualbox  amd64 x86
-app-emulation/virtualbox-bin amd64 x86
-app-emulation/virtualbox-additions amd64 x86
-app-emulation/virtualbox-extpack-oracle amd64 x86
-app-emulation/virtualbox-modules amd64 x86
+=x11-terms/guake-0.5.2 amd64 x86
+=app-accessibility/onboard-0.94.0 amd64 x86
