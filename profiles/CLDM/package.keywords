@@ -31,7 +31,7 @@ x11-plugins/pidgin-otr amd64 x86
 # required by @CLDM
 # required by @custom
 # required by @world
-=dev-libs/nss-3.19-r1 amd64 x86
+=dev-libs/nss-3.19.1 amd64 x86
 
 =x11-terms/guake-0.5.2 amd64 x86
 =app-accessibility/onboard-0.94.0 amd64 x86
