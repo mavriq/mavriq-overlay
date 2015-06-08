@@ -75,3 +75,6 @@ net-libs/rb_libtorrent python
 
 # required by www-client/firefox[system-libvpx]
 media-libs/libvpx postproc
+
+# без этого emerge не может определиться включать ему этот ключ или нет
+media-sound/lame cpu_flags_x86_mmx
