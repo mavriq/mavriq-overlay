@@ -14,7 +14,7 @@ x11-plugins/pidgin-otr amd64 x86
 
 =sys-devel/gcc-4.9.2 amd64 x86
 
-=sys-kernel/calculate-sources-4.0.4-r1 amd64 x86
+=sys-kernel/calculate-sources-4.0.5 amd64 x86
 
 # required by net-misc/remmina
 # required by @CLDM
