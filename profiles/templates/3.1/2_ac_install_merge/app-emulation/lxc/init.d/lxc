@@ -3,7 +3,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-#_name=${SVCNAME#*.}
 CONTAINER=${SVCNAME#*.}
 name="Linux Container ${CONTAINER}"
 extra_commands="info halt unfreeze"
@@ -20,20 +19,40 @@ description_attach="Start a shell inside a running container"
 ## be sure when you change this variables
 : ${rc_lxc__cgrouppath:=/sys/fs/cgroup/*/lxc}
 # to avoid situation like as this https://bugs.gentoo.org/show_bug.cgi?id=416643
-: ${rc_lxc__lxcpath:=$(lxc-config lxc.lxcpath)}
-## https://bugs.gentoo.org/show_bug.cgi?id=525956
-[ -f "${rc_lxc__lxcpath}/${CONTAINER}.conf" ] && \
-    CONFIGFILE="${rc_lxc__lxcpath}/${CONTAINER}.conf" || \
+if [[ -z "${rc_lxc__lxcpath}" ]]; then
+    rc_lxc__lxcpath=$(lxc-config lxc.lxcpath)
+    _name="--name '${CONTAINER}'"
+else
+    _name="--name '${CONTAINER}' --lxcpath '${rc_lxc__lxcpath}'"
+fi
+
+if [[ "${SVCNAME}" = "${CONTAINER}" ]]; then
+    CONFIGFILE=""
+elif [ -f "${rc_lxc__lxcpath}/${CONTAINER}.conf" ]; then
+    CONFIGFILE="${rc_lxc__lxcpath}/${CONTAINER}.conf"
+else
     CONFIGFILE="${rc_lxc__lxcpath}/${CONTAINER}/config"
+fi
+
+required_files=${CONFIGFILE}
 
 eval pidfile="\${rc_${SVCNAME//./_}__pidfile:-/run/lxc/\${CONTAINER}.pid}"
 eval logfile="\${rc_${SVCNAME//./_}__logfile:-/var/log/lxc/\${CONTAINER}.log}"
 eval logpriority="\${rc_${SVCNAME//./_}__logpriority:-\${rc_lxc__logpriority:-WARN}}"
 eval CONSOLELOG="\$rc_${SVCNAME//./_}__consolelog"
+eval linuxrc="\$rc_${SVCNAME//./_}__linuxrc"
 
-command="/usr/sbin/lxc-start"
-command_args="--name '${CONTAINER}' --rcfile '${CONFIGFILE}' --logfile '${logfile}' --logpriority '${logpriority}' --pidfile '${pidfile}' --daemon${CONSOLELOG:+ --console-log '${CONSOLELOG}'}"
-required_files=${CONFIGFILE}
+command_args="${_name} --rcfile '${CONFIGFILE}' --logfile '${logfile}' --logpriority '${logpriority}'"
+
+if [[ -z "${linuxrc}" ]]; then
+    command="/usr/sbin/lxc-start"
+    command_args+=" --pidfile '${pidfile}' --daemon${CONSOLELOG:+ --console-log '${CONSOLELOG}'}"
+else
+    [[ -n "${CONSOLELOG}" ]] && start_stop_daemon_args+=" --stdout '${CONSOLELOG}' --stderr '${CONSOLELOG}'"
+    command_background="yes"
+    command="/usr/sbin/lxc-execute"
+    command_args+=" -- ${linuxrc}"
+fi
 
 lxc_get_net_link_type() {
     awk 'BEGIN { FS="[ \t]*=[ \t]*"; _link=""; _type="" }
@@ -87,7 +106,7 @@ depend() {
 
 start_pre() {
     checkconfig || return 1
-    if lxc-info -n "${CONTAINER}" 2>/dev/null| grep -qiE '^state:\s+stopped$'; then
+    if eval lxc-info ${_name} 2>/dev/null| grep -qiE '^state:\s+stopped$'; then
         local _c _p=
         for _c in ${rc_lxc__cgrouppath}/"${CONTAINER}"; do
             [ -e "$_c" ] && \
@@ -100,7 +119,7 @@ start_pre() {
         ewarn "Possibly for you can help comand: rmdir${_p}"
         return 1
     else
-        if lxc-info -n "${CONTAINER}" 2>/dev/null | grep -qie '^state:'; then
+        if eval lxc-info ${_name} 2>/dev/null | grep -qie '^state:'; then
             eerror "Can't start ${name}. It's not sopped."
         else
             eerror "Can't start ${name}. It's not found."
@@ -110,15 +129,15 @@ start_pre() {
 
 start_post() {
     ebegin "Try to make sure ${name} started correctly"
-    ewaitfile 15 ${rc_lxc__cgrouppath}/"${CONTAINER}"
+    eval lxc-wait ${_name} -s RUNNING -t 15
     eend $?
 }
 
 _halt(){
     eval local HALT_TIMEOUT=\${rc_${SVCNAME//./_}__halt_timeout-${rc_lxc__halt_timeout-15}}
     ebegin "Halting ${name}"
-    ( lxc-stop --name "${CONTAINER}" --kill --nowait & ) &>/dev/null
-    lxc-wait --name "${CONTAINER}" -s STOPPED ${HALT_TIMEOUT:+-t ${HALT_TIMEOUT}}
+    ( eval lxc-stop ${_name} --kill --nowait & ) &>/dev/null
+    eval lxc-wait ${_name} -s STOPPED '${HALT_TIMEOUT:+-t ${HALT_TIMEOUT}}'
     if eend $? "Some error on halting ${name}"; then
         mark_service_stopped "${SVCNAME}"
     else
@@ -130,6 +149,7 @@ _halt(){
 halt() {
     service_stopped "${SVCNAME}" && ewarn "WARNING: ${SVCNAME} is already marked as stopped, but I still try to kill ${name}"
     _halt
+    # TODO: удалить /sys/fs/cgroup/...
 }
 
 stop() {
@@ -138,14 +158,14 @@ stop() {
     if ! service_wasinactive "${SVCNAME}"; then
         if [ -n "${STOP_PWR_TIMEOUT}" ]; then
             ebegin "Sending signal to stop ${name}"
-            kill -s SIGPWR "$(lxc-info --pid --no-humanize --name "${CONTAINER}")" &>/dev/null
-            lxc-wait --name "${CONTAINER}" -s STOPPED -t ${STOP_PWR_TIMEOUT}
+            kill -s SIGPWR "$(eval lxc-info ${_name} --pid --no-humanize)" &>/dev/null
+            eval lxc-wait ${_name} -s STOPPED -t ${STOP_PWR_TIMEOUT}
             eend $? && return 0
         fi
         if [ -n "${STOP_NOKILL_TIMEOUT}" ]; then
             ebegin "Try to request a clean shutdown ${name}"
-            ( lxc-stop --name "${CONTAINER}" --nokill & ) &>/dev/null
-            lxc-wait --name "${CONTAINER}" -s STOPPED -t ${STOP_NOKILL_TIMEOUT}
+            ( eval lxc-stop ${_name} --nokill & ) &>/dev/null
+            eval lxc-wait ${_name} -s STOPPED -t ${STOP_NOKILL_TIMEOUT}
             eend $? && return 0
         fi
     fi
@@ -154,14 +174,14 @@ stop() {
 
 freeze() {
     ebegin "Freeze all the processes of the container ${CONTAINER}"
-    lxc-freeze --name "${CONTAINER}"
+    eval lxc-freeze ${_name}
     eend $? "Problem whith freezing container ${CONTAINER}" && mark_service_inactive "${SVCNAME}"
 }
 
 unfreeze() {
     if service_inactive "${SVCNAME}"; then
         ebegin "Unfreeze container ${CONTAINER}"
-        lxc-unfreeze --name "${CONTAINER}"
+        eval lxc-unfreeze ${_name}
         eend $? "Problem whith unfreezing container ${CONTAINER}" && mark_service_started "${SVCNAME}"
     else
         eerror "${SVCNAME}: cannot \`unfreeze' as it has not been started"
@@ -169,9 +189,9 @@ unfreeze() {
 }
 
 info() {
-    lxc-info --name "${CONTAINER}"
+    eval lxc-info ${_name}
 }
 
 attach() {
-    lxc-attach --name "${CONTAINER}"
+    eval lxc-attach ${_name}
 }
