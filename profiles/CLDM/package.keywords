@@ -1,5 +1,6 @@
 net-misc/modem-manager-gui amd64 x86
 www-client/firefox amd64 x86
+mail-client/thunderbird amd64 x86
 app-cdr/simpleburn amd64 x86
 
 app-emulation/virtualbox  amd64 x86
