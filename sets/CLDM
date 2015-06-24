@@ -41,7 +41,7 @@ app-office/libreoffice
 app-text/fbreader
 mail-client/thunderbird
 net-ftp/filezilla
-www-apps/chromium-adblock
+www-plugins/chrome-ublock
 www-client/chromium
 www-plugins/chrome-binary-plugins
 www-client/firefox
