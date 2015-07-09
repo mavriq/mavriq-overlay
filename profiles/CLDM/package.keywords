@@ -17,6 +17,9 @@ x11-plugins/pidgin-otr amd64 x86
 
 =sys-kernel/calculate-sources-4.1.1 amd64 x86
 
+net-analyzer/bmon amd64 x86
+
+
 # required by net-misc/remmina
 # required by @CLDM
 # required by @custom
