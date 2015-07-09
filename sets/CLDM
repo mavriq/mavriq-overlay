@@ -10,6 +10,7 @@ sys-apps/gnome-disk-utility
 sys-block/gparted
 x11-libs/gksu
 x11-terms/guake
+app-shells/bash-completion
 
 x11-themes/calculate-icon-theme
 x11-themes/calculate-xcursors
