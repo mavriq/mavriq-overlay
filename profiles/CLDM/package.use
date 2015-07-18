@@ -10,6 +10,7 @@ net-misc/remmina freerdp ssh vte
 net-analyzer/nmap ncat ndiff nping zenmap
 sys-block/parted device-mapper
 net-im/pidgin gnutls
+gnome-extra/nm-applet -bluetooth
 
 # тянет sys-fs/udisks:0. тут он может помешать
 =media-sound/clementine-1.2* -udisks
