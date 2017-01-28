@@ -1,0 +1,9 @@
+elog "The ${name} HTTP API includes a built-in authentication mechanism,"
+elog "based on user credentials, which is disabled by default. To add"
+elog "authentication to ${name} set in the [http] section of the"
+elog " config file:"
+elog
+elog "  [http]"
+elog "  ..."
+elog "  auth-enabled = true"
+elog "  ..." 

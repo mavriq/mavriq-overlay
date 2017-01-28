@@ -1,0 +1,8 @@
+# /etc/conf.d/influxdb: config file for /etc/init.d/influxdb
+
+#INFLUXDB_USER=influxdb
+#INFLUXDB_GROUP=influxdb
+#INFLUXDB_LOGFILE=/dev/null
+#INFLUXDB_ERRFILE=/var/log/influxdb/influxd.log
+
+INFLUXD_OPTS=""

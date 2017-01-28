@@ -1,0 +1,26 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+description="InfluxDB is an open-source, distributed, time series database"
+
+: "${rc_ulimit:=-n 65536}"
+command=/usr/bin/influxd
+: "${INFLUXDB_USER:=influxdb}"
+: "${INFLUXDB_GROUP:=influxdb}"
+: "${INFLUXDB_LOGFILE:=/dev/null}"
+: "${INFLUXDB_ERRFILE:=/var/log/${SVCNAME}/${command##*/}.log}"
+: "${CONFIG_FILE:=/etc/${SVCNAME}/influxdb.conf}"
+: "${pidfile:=/run/${SVCNAME}/${command##*/}.pid}"
+command_args="-config ${CONFIG_FILE} ${INFLUXD_OPTS}"
+
+start_stop_daemon_args=" --user ${INFLUXDB_USER}:${INFLUXDB_GROUP} --stdout ${INFLUXDB_LOGFILE} --stderr ${INFLUXDB_ERRFILE} --background --make-pidfile"
+
+depend() {
+    need localmount net
+}
+
+start_pre() {
+    mkdir -pv "${pidfile%/*}"
+}
