@@ -1,6 +1,0 @@
-# Calculate format=kde link=/usr/share/applications/eom.desktop name=calculate-imageview.desktop mirror
-
-# Hide icon
-[Desktop Entry]
-NoDisplay=true
-!MimeType=

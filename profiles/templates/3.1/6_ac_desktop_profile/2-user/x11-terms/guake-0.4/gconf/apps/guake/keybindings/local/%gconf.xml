@@ -1,7 +1,0 @@
-# Calculate format=xml_gconf
-<?xml version="1.0"?>
-<gconf>
-	<entry name="rename_tab" type="string">
-		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;n</stringvalue>
-	</entry>
-</gconf>

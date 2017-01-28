@@ -1,2 +1,0 @@
-## now sys-power/upower-pm-utils instead sys-power/upower
-sys-power/upower

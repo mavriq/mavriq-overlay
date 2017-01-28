@@ -1,4 +1,0 @@
-# Calculate format=openrc
-
-LESS="-R -M -i --shift 1"
-LESSCOLOR="always"

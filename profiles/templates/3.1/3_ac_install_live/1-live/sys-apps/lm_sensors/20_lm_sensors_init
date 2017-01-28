@@ -1,2 +1,0 @@
-# Calculate exists(/etc/runlevels/boot/lm_sensors)== exists(/etc/runlevels/default/lm_sensors)== \
-path=/etc/runlevels/boot name=lm_sensors link=/etc/init.d/lm_sensors symbolic

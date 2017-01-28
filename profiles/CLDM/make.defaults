@@ -1,8 +1,0 @@
-CDISTRO="CLDM desktop"
-CL="builder client desktop console consolegui"
-USE="${USE} "
-USE="${USE} udev"
-USE="${USE} gnome-keyring introspection"
-USE="${USE} caja -gnome -kde mate bluetooth"
-USE="${USE} startup-notification system-cairo system-icu system-jpeg system-libvpx system-sqlite"
-THEMES="CLDG CLDM"

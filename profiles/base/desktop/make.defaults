@@ -1,6 +1,0 @@
-USE="${USE} xattr"
-USE="${USE} exif xmp"
-USE="${USE} networkmanager modemmanager"
-USE="${USE} pulseaudio"
-USE="${USE} glamor"
-USE="${USE} -mysql"

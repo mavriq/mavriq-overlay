@@ -1,5 +1,0 @@
-# Calculate format=patch
-<reg>#\s+(set\s+(autoindent|const|morespace|noconvert|nonewlines|nowrap|regexp|smarthome|smooth|softwrap)|include)</reg>
-<text>\1</text>
-<reg>#\s+set\s+(tabsize\s+\d+)</reg>
-<text>set tabsize 4</text>

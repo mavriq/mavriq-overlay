@@ -1,6 +1,0 @@
-# Calculate format=kde link=/usr/share/applications/simpleburn.desktop name=calculate-imageburn.desktop mirror pkg(app-cdr/simpleburn)!=
-
-# Hide icon
-[Desktop Entry]
-NoDisplay=true
-!MimeType=

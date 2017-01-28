@@ -1,1 +1,0 @@
-# Calculate append=skip merge(app-crypt/seahorse)!=&&ini(update.seahorse3)!=off&&ini(ver.seahorse3)==&&pkg(app-crypt/seahorse)>=3
