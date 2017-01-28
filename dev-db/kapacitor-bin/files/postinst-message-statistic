@@ -1,0 +1,8 @@
+elog "By default, ${name} sends anonymouse statistics about your ${name}"
+elog "instance. If you would like to disable this funcionality, set in"
+elog "the [monitoring] section of your config file:"
+elog
+elog "  [monitoring]"
+elog "  ..."
+elog "  enabled = false"
+elog "  ..."

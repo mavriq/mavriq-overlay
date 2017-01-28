@@ -1,0 +1,8 @@
+# /etc/conf.d/kapacitor: config file for /etc/init.d/kapacitor
+
+#KAPACITOR_USER=kapacitor
+#KAPACITOR_GROUP=kapacitor
+#KAPACITOR_LOGFILE=/dev/null
+#KAPACITOR_ERRFILE=/var/log/kapacitor/kapacitord.err
+
+KAPACITOR_OPTS=""

@@ -1,0 +1,26 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+description="Time series data processing engine."
+
+: "${rc_ulimit:=-n 65536}"
+command=/usr/bin/kapacitor
+: "${KAPACITOR_USER:=kapacitor}"
+: "${KAPACITOR_GROUP:=kapacitor}"
+: "${KAPACITOR_LOGFILE:=/dev/null}"
+: "${KAPACITOR_ERRFILE:=/var/log/${SVCNAME}/${command##*/}.err}"
+: "${CONFIG_FILE:=/etc/${SVCNAME}/kapacitor.conf}"
+: "${pidfile:=/run/${SVCNAME}/${command##*/}.pid}"
+command_args="-config ${CONFIG_FILE} ${KAPACITOR_OPTS}"
+
+start_stop_daemon_args=" --user ${KAPACITOR_USER}:${KAPACITOR_GROUP} --stdout ${KAPACITOR_LOGFILE} --stderr ${KAPACITOR_ERRFILE} --background --make-pidfile"
+
+depend() {
+    need localmount net
+}
+
+start_pre() {
+    mkdir -pv "${pidfile%/*}"
+}
